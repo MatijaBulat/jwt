@@ -15,11 +15,11 @@ namespace Jwt.Controllers
         private readonly IPasswordManager _passwordEncryptor;
         private readonly ITokenGenerator _tokenManager;
         private readonly IConfiguration _configuration;
-        private readonly RabbitMQService _rabbitMQService;
+        private readonly IMessagePublisher _rabbitMQService;
 
         private static User user = new();
 
-        public AuthController(IConfiguration configuration, IPasswordManager passwordEncryptor, ITokenGenerator tokenManager, RabbitMQService rabbitMQService)
+        public AuthController(IConfiguration configuration, IPasswordManager passwordEncryptor, ITokenGenerator tokenManager, IMessagePublisher rabbitMQService)
         {
             _configuration = configuration;
             _passwordEncryptor = passwordEncryptor;

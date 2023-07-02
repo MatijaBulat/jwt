@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IPasswordManager, PasswordManager>();
 builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
 
-builder.Services.AddSingleton<RabbitMQService>();
+builder.Services.AddSingleton<IMessagePublisher, RabbitMQService>();
 
 var app = builder.Build();
 

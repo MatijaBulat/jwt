@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Jwt.Services.RabbitMq
 {
-    public class RabbitMQService
+    public class RabbitMQService : IMessagePublisher
     {
         private readonly IConfiguration _configuration;
         private IConnection _connection;
