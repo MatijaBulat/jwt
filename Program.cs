@@ -1,5 +1,9 @@
 using Jwt.Services.Password;
+using Jwt.Services.RabbitMq;
 using Jwt.Services.Token;
+using RabbitMQ.Client;
+using System.Text;
+using System.Threading.Channels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +15,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IPasswordManager, PasswordManager>();
 builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
+
+builder.Services.AddSingleton<RabbitMQService>();
 
 var app = builder.Build();
 
